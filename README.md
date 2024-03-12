@@ -51,10 +51,12 @@ Airflow выполняет автоматический запуск скрип�
 1. Клонируйте репозиторий:
    ```bash
    git clone https://github.com/Lerrale/DE_vacancy_analysis.git)https://github.com/Lerrale/DE_vacancy_analysis.git
+   ```
    
 2. Можно запустить либо с помощью bash скрипта:
    ```bash
    ./run.sh
+   ```
 
 
    Либо с помощью запуска docker compose:
