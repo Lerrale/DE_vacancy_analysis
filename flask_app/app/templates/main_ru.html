@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вакансии Data Engineer</title>
+    <style>
+        .project-description {
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            text-align: center; /* Восстановлено выравнивание по центру */
+            font-family: Arial, sans-serif; /* Широкий шрифт */
+            margin-bottom: 50px;
+        }
+    
+        .project-description h2 {
+            color: #333;
+            margin: 0 0 10px;
+            font-size: 28px;
+            font-weight: bold; /* Утолщенный шрифт */
+            text-align: center; /* Восстановлено выравнивание по центру */
+        }
+    
+        .project-description p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: bold; /* Утолщенный шрифт */
+            text-align: center; /* Восстановлено выравнивание по центру */
+        }
+    
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            margin: 10px auto;
+            display: block;
+            margin-bottom: 60px;
+        }
+    
+        .image-title {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: Arial, sans-serif; /* Широкий шрифт */
+            text-align: center; /* Восстановлено выравнивание по центру */
+        }
+    
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif; /* Широкий шрифт */
+        }
+    
+        .gallery-container {
+            text-align: center; /* Восстановлено выравнивание по центру */
+            width: 100%;
+            max-width: 100%;
+        }
+    
+        .gallery-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold; /* Утолщенный шрифт */
+            font-family: Arial, sans-serif; /* Широкий шрифт */
+            text-align: center; /* Восстановлено выравнивание по центру */
+        }
+    
+        .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+    
+        .gallery-image {
+            width: 50%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+    
+        .enlarged {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+    </style>    
+    
+</head>
+<body>
+    <div class="project-description">
+        <h2>Аналитика рынка вакансий Data Engineer</h2>
+        <p>Добро пожаловать в агрегатор вакансий для специалистов по данным. Здесь вы найдете ежедневно обновляемую информацию с сайта hh.ru о вакансиях Data Engineer, основанную на данных за последние 3 месяца. Анализ включает в себя топ требуемых навыков, средние уровни зарплат, а также географическое распределение предложений. Это позволяет удобно отслеживать тенденции на рынке труда в области обработки данных.</p>
+    </div>
+
+    <div class="image-container">
+        <div class="image-title">Распределение средних зарплат для вакансий на должность Data Engineer</div>
+        <img src="/static/mean_salary_common_ru.png" alt="Изображение 1">
+    </div>
+
+    <div class="image-container">
+        <div class="image-title">Распределение объявлений по странам</div>
+        <img src="/static/pie_plt_country_ru.png" alt="Изображение 2">
+    </div>
+
+    <div class="image-container">
+        <div class="image-title">Средняя зарплата в зависимости от опыта работы</div>
+        <img src="/static/mean_salary_experiense_ru.png" alt="Изображение 3">
+    </div>
+
+    <div class="image-container">
+        <div class="image-title">Максимальная зарплата в зависимости от опыта работы</div>
+        <img src="/static/max_salary_experiense_ru.png" alt="Изображение 4">
+    </div>
+
+    <!-- Топ требований -->
+    <div class="gallery-container">
+        <div class="gallery-title">Топ требований</div>
+        <div class="gallery-grid">
+            <img src="/static/top_skills_junior.png" class="gallery-image" id="img1">
+            <img src="/static/top_skills_middle.png" class="gallery-image" id="img2">
+            <img src="/static/top_skills_senior.png" class="gallery-image" id="img3">
+            <img src="/static/top_skills_experienced_senior.png" class="gallery-image" id="img4">
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.gallery-image').forEach(image => {
+            image.addEventListener('click', () => {
+                image.classList.toggle('enlarged');
+            });
+        });
+    </script>
+</body>
+</html>
+

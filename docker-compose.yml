@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
+  data-processor:
+    build:
+      context: ./data-processor
+    container_name: data_processor_container  
+    command: tail -f /dev/null
+    environment:
+      MONGO_USERNAME: root
+      MONGO_PASSWORD: example
+      MONGO_HOST: mongo
+    depends_on:
+      - mongo
+
+  airflow:
+    build: ./airflow
+    environment:
+      - LOAD_EX=y
+      - EXECUTOR=Local
+    ports:
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  
+    # volumes:
+    #   - /home/valeriya/job_vacancy_analysis/airflow:/opt/airflow
+    depends_on:
+      - mongo
+      - data-processor
+
+  flask_app:
+    build: ./flask_app
+    container_name: flask_app_container
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+
+volumes:
+  mongodata:
+
+# docker compose up --build
+# docker-compose build --no-cache
+# docker-compose up
+# docker exec -it 7bd7d6dbf3b9 bash
+# docker exec -it 99d01df5c01f mongo -u root -p example
+
+# sudo chmod 666 /var/run/docker.sock на хост машине

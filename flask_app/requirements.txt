@@ -1,0 +1,5 @@
+Flask
+matplotlib==3.7.0
+pymongo
+seaborn==0.12.2
+pandas==1.5.3
