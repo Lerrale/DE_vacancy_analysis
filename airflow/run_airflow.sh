@@ -9,12 +9,12 @@ airflow db upgrade
 echo "Обновление базы данных Airflow завершено."
 
 airflow users create \
-  --username student44 \
+  --username Admin \
   --firstname Admin \
   --lastname Admin \
   --role Admin \
   --email admin@example.com \
-  --password jksdhgf65Jjh
+  --password Admin
 
 echo "Запуск Triggerer..."
 airflow triggerer &  
