@@ -22,5 +22,8 @@ airflow triggerer &
 echo "Запуск Airflow webserver в фоновом режиме..."
 airflow webserver -p 8080 & 
 
+echo "Запуск DAG data_processing..."
+airflow dags unpause data_processing
+
 echo "Запуск Airflow Scheduler..."
 exec airflow scheduler
